@@ -1,4 +1,4 @@
-## **Apa Itu FlowForge?**
+## **Apa Itu FlowForge Manajemen Workflow?**
 
 FlowForge adalah aplikasi desktop revolusioner berbasis Python yang berfungsi sebagai **Orkestrator Alur Kerja Universal**. Ia dirancang untuk membantu Anda mengotomatisasi, mengorkestrasi, dan mengelola berbagai proses digital dan tugas berulang dengan antarmuka grafis yang intuitif (GUI). Lupakan tugas-tugas manual yang membosankan dan rentan kesalahan – FlowForge memungkinkan Anda merancang "alur kerja" yang cerdas dengan serangkaian langkah, kondisi, dan pemicu, semuanya tanpa perlu menulis baris kode yang rumit.
 
