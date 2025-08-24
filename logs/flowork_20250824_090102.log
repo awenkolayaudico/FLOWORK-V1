@@ -1,0 +1,5 @@
+2025-08-24 09:02:40,132 - INFO - Starting Flowork application...
+2025-08-24 09:02:53,626 - WARNING - C:\FLOWORK\python\lib\site-packages\moviepy\video\io\sliders.py:61: SyntaxWarning: "is" with a literal. Did you mean "=="?
+  if event.key is 'enter':
+
+2025-08-24 09:02:57,446 - INFO - Scheduler started
