@@ -3,7 +3,7 @@
 # EMAIL SAHIDINAOLA@GMAIL.COM
 # WEBSITE WWW.TEETAH.ART
 # File NAME : C:\FLOWORK\plugins\flowork_core_ui\settings_tab.py
-# JUMLAH BARIS : 120
+# JUMLAH BARIS : 121
 #######################################################################
 
 import ttkbootstrap as ttk
@@ -17,14 +17,11 @@ from .settings_components.error_handler_frame import ErrorHandlerFrame
 from .settings_components.variable_manager_frame import VariableManagerFrame
 from .settings_components.ai_provider_settings_frame import AiProviderSettingsFrame
 from .settings_components.recorder_settings_frame import RecorderSettingsFrame
+from .settings_components.ai_model_manager_frame import AiModelManagerFrame
 import threading
 from flowork_kernel.ui_shell.custom_widgets.scrolled_frame import ScrolledFrame
 from flowork_kernel.exceptions import PermissionDeniedError
 class SettingsTab(ttk.Frame):
-    """
-    Acts as a container and coordinator for all the individual settings frames.
-    [REFACTORED] Now fetches all settings from the API and orchestrates saving.
-    """
     def __init__(self, parent_notebook, kernel_instance):
         super().__init__(parent_notebook, padding=15)
         self.kernel = kernel_instance
@@ -54,6 +51,9 @@ class SettingsTab(ttk.Frame):
         self.general_frame = GeneralSettingsFrame(parent_frame, self.kernel)
         self.general_frame.pack(fill="x", pady=5, padx=5)
         self.all_settings_frames.append(self.general_frame)
+        self.ai_model_manager_frame = AiModelManagerFrame(parent_frame, self.kernel)
+        self.ai_model_manager_frame.pack(fill="x", pady=5, padx=5)
+        self.all_settings_frames.append(self.ai_model_manager_frame)
         self.ai_provider_frame = AiProviderSettingsFrame(parent_frame, self.kernel)
         self.ai_provider_frame.pack(fill="x", pady=5, padx=5)
         self.all_settings_frames.append(self.ai_provider_frame)
@@ -87,7 +87,8 @@ class SettingsTab(ttk.Frame):
             for frame in self.all_settings_frames:
                 try:
                     if hasattr(frame, 'load_settings_data'):
-                        frame.pack(fill="x", pady=5, padx=5, expand=True, anchor="n")
+                        if not frame.winfo_manager():
+                             frame.pack(fill="x", pady=5, padx=5, expand=True, anchor="n")
                         frame.load_settings_data(settings_data)
                 except PermissionDeniedError:
                     self.kernel.write_to_log(f"Hiding settings frame '{frame.__class__.__name__}' due to insufficient permissions.", "WARN")
