@@ -1,0 +1,21 @@
+# File ini dibuat secara otomatis oleh script uploader.py
+
+.git
+.github
+.venv
+libs
+libs.zip
+scripts/create_fingerprint.py
+scripts/generate_docs.py
+scripts/generate_integrity_manifest.py
+scripts/generate_permissions.py
+scripts/lock_addons.py
+scripts/secure_encode.py
+ai_models
+data/plan
+data/license.seal
+python
+vendor
+backup.py
+tes_mic.py
+__pycache__
